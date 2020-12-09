@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_login_ui/screens/DetailTodoScreen.dart';
+import 'package:flutter_login_ui/screens/home.dart';
 import 'package:flutter_login_ui/screens/login_screen.dart';
 
 void main() => runApp(MyApp());
@@ -10,7 +12,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Roomitum',
       debugShowCheckedModeBanner: false,
-      home: LoginScreen(),
+      routes: {
+        '/login': (context) => LoginScreen(),
+        '/catalogo': (context) => Home(),
+        '/detail': (context) => DetailTodoScreen(),
+      },
+      initialRoute: '/login',
     );
   }
 }
