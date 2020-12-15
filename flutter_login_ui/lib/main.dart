@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_login_ui/screens/DetailTodoScreen.dart';
 import 'package:flutter_login_ui/screens/home.dart';
 import 'package:flutter_login_ui/screens/login_screen.dart';
+import 'package:flutter_login_ui/screens/home.dart';
+import 'package:flutter_login_ui/screens/DetailTodoScreen.dart';
 
 void main() => runApp(MyApp());
 
