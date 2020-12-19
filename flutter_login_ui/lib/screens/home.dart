@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+//import 'package:path/path.dart';
 
 class Home extends StatelessWidget {
   @override
@@ -18,12 +19,24 @@ class Home extends StatelessWidget {
       drawer: Drawer(
           child: ListView(
         children: <Widget>[
-          ListTile(
-            title: Text('Tu perfil'),
-            onTap: () {},
+          UserAccountsDrawerHeader(
+            accountName: Text('Jose'),
+            accountEmail: Text('jose@gmail.com'),
+            currentAccountPicture: CircleAvatar(
+              backgroundColor: Colors.purple,
+              child: Text('J', style: TextStyle(fontSize: 40.0)),
+            ),
           ),
           ListTile(
-            title: Text('Tus opciones'),
+            title: Text('Tu perfil'),
+            leading: Icon(Icons.supervised_user_circle),
+            onTap: () {
+              Navigator.pushNamed(context, '/perfil');
+            },
+          ),
+          ListTile(
+            title: Text('favoritos'),
+            leading: Icon(Icons.star),
             onTap: () {},
           ),
           ListTile(
