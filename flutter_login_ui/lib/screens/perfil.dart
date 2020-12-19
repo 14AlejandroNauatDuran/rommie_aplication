@@ -29,80 +29,82 @@ class FormularioPerfil extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: Form(
           key: formKey,
-          child: Column(
-            children: <Widget>[
-              Image.asset(
-                "assets/logos/usuario.png",
-                height: 200,
-              ),
-              TextFormField(
-                decoration: InputDecoration(labelText: "Nombre:"),
-                onSaved: (value) {
-                  nameValue = value;
-                },
-                validator: (value) {
-                  if (value.isEmpty) {
-                    return "Llene este campo";
-                  }
-                  return null;
-                },
-              ),
-              TextFormField(
-                decoration: InputDecoration(labelText: "Apellido Paterno"),
-                onSaved: (value) {
-                  apellidoPaterno = value;
-                },
-                validator: (value) {
-                  if (value.isEmpty) {
-                    return "Llene este campo";
-                  }
-                  return null;
-                },
-              ),
-              TextFormField(
-                decoration: InputDecoration(labelText: "Apellido Materno"),
-                onSaved: (value) {
-                  apellidoMaterno = value;
-                },
-                validator: (value) {
-                  if (value.isEmpty) {
-                    return "Llene este campo";
-                  }
-                  return null;
-                },
-              ),
-              TextFormField(
-                decoration: InputDecoration(labelText: "Genero"),
-                onSaved: (value) {
-                  genero = value;
-                },
-                validator: (value) {
-                  if (value.isEmpty) {
-                    return "Llene este campo";
-                  }
-                  return null;
-                },
-              ),
-              TextFormField(
-                decoration: InputDecoration(labelText: "Ocupacion"),
-                onSaved: (value) {
-                  ocupacion = value;
-                },
-                validator: (value) {
-                  if (value.isEmpty) {
-                    return "Llene este campo";
-                  }
-                  return null;
-                },
-              ),
-              RaisedButton(
-                child: Text("Guardar Informacion"),
-                color: Colors.blueAccent,
-                onPressed: () {
-                  print("Informacion almacenada correctamente");
-                },
-              )
-            ],
+          child: SingleChildScrollView(
+            child: Column(
+              children: <Widget>[
+                Image.asset(
+                  "assets/logos/usuario.png",
+                  height: 200,
+                ),
+                TextFormField(
+                  decoration: InputDecoration(labelText: "Nombre:"),
+                  onSaved: (value) {
+                    nameValue = value;
+                  },
+                  validator: (value) {
+                    if (value.isEmpty) {
+                      return "Llene este campo";
+                    }
+                    return null;
+                  },
+                ),
+                TextFormField(
+                  decoration: InputDecoration(labelText: "Apellido Paterno"),
+                  onSaved: (value) {
+                    apellidoPaterno = value;
+                  },
+                  validator: (value) {
+                    if (value.isEmpty) {
+                      return "Llene este campo";
+                    }
+                    return null;
+                  },
+                ),
+                TextFormField(
+                  decoration: InputDecoration(labelText: "Apellido Materno"),
+                  onSaved: (value) {
+                    apellidoMaterno = value;
+                  },
+                  validator: (value) {
+                    if (value.isEmpty) {
+                      return "Llene este campo";
+                    }
+                    return null;
+                  },
+                ),
+                TextFormField(
+                  decoration: InputDecoration(labelText: "Genero"),
+                  onSaved: (value) {
+                    genero = value;
+                  },
+                  validator: (value) {
+                    if (value.isEmpty) {
+                      return "Llene este campo";
+                    }
+                    return null;
+                  },
+                ),
+                TextFormField(
+                  decoration: InputDecoration(labelText: "Ocupacion"),
+                  onSaved: (value) {
+                    ocupacion = value;
+                  },
+                  validator: (value) {
+                    if (value.isEmpty) {
+                      return "Llene este campo";
+                    }
+                    return null;
+                  },
+                ),
+                RaisedButton(
+                  child: Text("Guardar Informacion"),
+                  color: Colors.blueAccent,
+                  onPressed: () {
+                    print("Informacion almacenada correctamente");
+                  },
+                )
+              ],
+            ),
           ),
         ),
       ),
