@@ -31,11 +31,7 @@ class Home extends StatelessWidget {
             title: Text('Tu perfil'),
             leading: Icon(Icons.supervised_user_circle),
             onTap: () {
-<<<<<<< HEAD
               Navigator.pushNamed(context, '/perfil');
-=======
-              //  Navigator.pushNamed(context, '/Perfil'); //modificación
->>>>>>> e39837aca3fd594491df748f3f2ca8e827bf5dea
             },
           ),
           ListTile(
