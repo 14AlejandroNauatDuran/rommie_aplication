@@ -30,6 +30,10 @@ class FormularioPerfil extends StatelessWidget {
           key: formKey,
           child: Column(
             children: <Widget>[
+              Image.asset(
+                "assets/logos/usuario.png",
+                height: 200,
+              ),
               TextFormField(
                 decoration: InputDecoration(labelText: "Nombre:"),
                 onSaved: (value) {
