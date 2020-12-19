@@ -6,7 +6,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Roomie'),
+        title: Text('Roommie'),
       ),
       body: new Center(
         child: RaisedButton(
@@ -28,17 +28,11 @@ class Home extends StatelessWidget {
             ),
           ),
           ListTile(
-            title: Text('Tu perfil'),
-            leading: Icon(Icons.supervised_user_circle),
-            onTap: () {
-              Navigator.pushNamed(context, '/perfil');
-<<<<<<< HEAD
-=======
-
-              //  Navigator.pushNamed(context, '/Perfil'); //modificación
->>>>>>> 7d704d805b892b45f755b16e101053a10066228b
-            },
-          ),
+              title: Text('Tu perfil'),
+              leading: Icon(Icons.supervised_user_circle),
+              onTap: () {
+                Navigator.pushNamed(context, '/perfil');
+              }),
           ListTile(
             title: Text('favoritos'),
             leading: Icon(Icons.star),
