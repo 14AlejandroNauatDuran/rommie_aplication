@@ -30,7 +30,9 @@ class Home extends StatelessWidget {
           ListTile(
             title: Text('Tu perfil'),
             leading: Icon(Icons.supervised_user_circle),
-            onTap: () {},
+            onTap: () {
+              //  Navigator.pushNamed(context, '/Perfil'); //modificación
+            },
           ),
           ListTile(
             title: Text('favoritos'),
@@ -38,8 +40,16 @@ class Home extends StatelessWidget {
             onTap: () {},
           ),
           ListTile(
-            title: Text('Contacto'),
+            title: Text('Ayuda'),
+            leading: Icon(Icons.question_answer_outlined),
             onTap: () {},
+          ),
+          ListTile(
+            title: Text('Cerrar Sesión'),
+            leading: Icon(Icons.arrow_back),
+            onTap: () {
+              Navigator.pushNamed(context, '/login'); //modificación
+            },
           )
         ],
       )),
