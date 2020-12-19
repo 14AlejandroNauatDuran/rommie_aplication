@@ -28,20 +28,11 @@ class Home extends StatelessWidget {
             ),
           ),
           ListTile(
-<<<<<<< HEAD
-            title: Text('Tu perfil'),
-            leading: Icon(Icons.supervised_user_circle),
-            onTap: () {
-              Navigator.pushNamed(context, '/perfil');
-            },
-          ),
-=======
               title: Text('Tu perfil'),
               leading: Icon(Icons.supervised_user_circle),
               onTap: () {
                 Navigator.pushNamed(context, '/perfil');
               }),
->>>>>>> a93f4b901618bc2e27459bc3c49fe1114addd888
           ListTile(
             title: Text('favoritos'),
             leading: Icon(Icons.star),

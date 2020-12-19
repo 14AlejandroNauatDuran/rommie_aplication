@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_login_ui/screens/DetailTodoScreen.dart';
 import 'package:flutter_login_ui/screens/home.dart';
 import 'package:flutter_login_ui/screens/login_screen.dart';
 import 'package:flutter_login_ui/screens/perfil.dart';
-<<<<<<< HEAD
 
-=======
->>>>>>> a93f4b901618bc2e27459bc3c49fe1114addd888
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -19,7 +15,6 @@ class MyApp extends StatelessWidget {
       routes: {
         '/login': (context) => LoginScreen(),
         '/catalogo': (context) => Home(),
-        '/detail': (context) => DetailTodoScreen(),
         '/perfil': (context) => Perfil(),
       },
       initialRoute: '/login',
