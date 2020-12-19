@@ -10,6 +10,7 @@ class Perfil extends StatelessWidget {
   }
 }
 
+// ignore: must_be_immutable
 class FormularioPerfil extends StatelessWidget {
   @override
   FormularioPerfil();
@@ -43,6 +44,7 @@ class FormularioPerfil extends StatelessWidget {
                   if (value.isEmpty) {
                     return "Llene este campo";
                   }
+                  return null;
                 },
               ),
               TextFormField(
@@ -54,6 +56,7 @@ class FormularioPerfil extends StatelessWidget {
                   if (value.isEmpty) {
                     return "Llene este campo";
                   }
+                  return null;
                 },
               ),
               TextFormField(
@@ -65,6 +68,7 @@ class FormularioPerfil extends StatelessWidget {
                   if (value.isEmpty) {
                     return "Llene este campo";
                   }
+                  return null;
                 },
               ),
               TextFormField(
@@ -76,6 +80,7 @@ class FormularioPerfil extends StatelessWidget {
                   if (value.isEmpty) {
                     return "Llene este campo";
                   }
+                  return null;
                 },
               ),
               TextFormField(
@@ -87,6 +92,7 @@ class FormularioPerfil extends StatelessWidget {
                   if (value.isEmpty) {
                     return "Llene este campo";
                   }
+                  return null;
                 },
               ),
               RaisedButton(
