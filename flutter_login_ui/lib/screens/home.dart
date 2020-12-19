@@ -13,7 +13,7 @@ class Home extends StatelessWidget {
           onPressed: () {
             Navigator.of(context).pushNamed('/detail'); //modificación
           },
-          child: new Text('ejemplo'),
+          child: new Text('Publicar Habitación'),
         ),
       ),
       drawer: Drawer(
@@ -34,7 +34,7 @@ class Home extends StatelessWidget {
                 Navigator.pushNamed(context, '/perfil');
               }),
           ListTile(
-            title: Text('favoritos'),
+            title: Text('Favoritos'),
             leading: Icon(Icons.star),
             onTap: () {},
           ),
