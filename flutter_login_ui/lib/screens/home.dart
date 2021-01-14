@@ -36,7 +36,9 @@ class Home extends StatelessWidget {
           ListTile(
             title: Text('Favoritos'),
             leading: Icon(Icons.star),
-            onTap: () {},
+            onTap: () {
+              Navigator.pushNamed(context, '/favorito');
+            },
           ),
           ListTile(
             title: Text('Ayuda'),

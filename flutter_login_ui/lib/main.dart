@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_login_ui/screens/favorito.dart';
 import 'package:flutter_login_ui/screens/home.dart';
 import 'package:flutter_login_ui/screens/login_screen.dart';
 import 'package:flutter_login_ui/screens/perfil.dart';
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
         '/login': (context) => LoginScreen(),
         '/catalogo': (context) => Home(),
         '/perfil': (context) => Perfil(),
+        '/favorito': (context) => Favorito(),
       },
       initialRoute: '/login',
     );
