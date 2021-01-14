@@ -9,11 +9,24 @@ class Home extends StatelessWidget {
         title: Text('Roommie'),
       ),
       body: new Center(
-        child: RaisedButton(
-          onPressed: () {
-            Navigator.of(context).pushNamed('/detail'); //modificación
-          },
-          child: new Text('Publicar Habitación'),
+        ///trabajar para boton crear anuncio
+        child: Column(
+          children: <Widget>[
+            FloatingActionButton(
+              onPressed: () {
+                Navigator.of(context).pushNamed('/anuncios'); //modificación
+              },
+              child: Icon(Icons.add),
+              elevation: 50.0,
+              backgroundColor: Colors.amber,
+            ),
+            //child: RaisedButton(
+            //onPressed: () {
+            // Navigator.of(context).pushNamed('/detail'); //modificación
+            //},
+            //child: new Text('Publicar Habitación'),
+            //),
+          ],
         ),
       ),
       drawer: Drawer(
@@ -34,10 +47,10 @@ class Home extends StatelessWidget {
                 Navigator.pushNamed(context, '/perfil');
               }),
           ListTile(
-            title: Text('Favoritos'),
-            leading: Icon(Icons.star),
+            title: Text('Mis anuncios'),
+            leading: Icon(Icons.speaker_group),
             onTap: () {
-              Navigator.pushNamed(context, '/favorito');
+              Navigator.pushNamed(context, '/anuncios');
             },
           ),
           ListTile(
