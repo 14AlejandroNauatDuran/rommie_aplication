@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+<<<<<<< Updated upstream
 import 'package:flutter_login_ui/screens/anuncio.dart';
+=======
+//import 'package:flutter_login_ui/screens/favorito.dart';
+>>>>>>> Stashed changes
 import 'package:flutter_login_ui/screens/home.dart';
 import 'package:flutter_login_ui/screens/login_screen.dart';
 import 'package:flutter_login_ui/screens/perfil.dart';
