@@ -17,8 +17,8 @@ class Home extends StatelessWidget {
                 Navigator.of(context).pushNamed('/anuncios'); //modificación
               },
               child: Icon(Icons.add),
-              elevation: 50.0,
-              backgroundColor: Colors.amber,
+              elevation: (1.0),
+              backgroundColor: Colors.purple,
             ),
             //child: RaisedButton(
             //onPressed: () {
