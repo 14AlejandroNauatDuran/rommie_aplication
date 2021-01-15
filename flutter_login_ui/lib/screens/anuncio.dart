@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_login_ui/utilities/constants.dart';
+
 
 class Anuncio extends StatelessWidget {
   @override
@@ -33,8 +36,13 @@ class FormularioPerfil extends StatelessWidget {
             child: Column(
               children: <Widget>[
                 TextFormField(
-                  decoration:
-                      InputDecoration(labelText: "Nombre de la propiedad:"),
+                   keyboardType: TextInputType.text,
+                    style: TextStyle(
+                    color: Colors.blueAccent,
+                    fontFamily: 'OpenSans'),
+                  decoration: InputDecoration(labelText: "Propiedad",
+                      hintText: 'Nombre de la propiedad',
+                      hintStyle: kHintTextStyle,),
                   onSaved: (value) {
                     namePropity = value;
                   },
@@ -46,20 +54,31 @@ class FormularioPerfil extends StatelessWidget {
                   },
                 ),
                 TextFormField(
-                  decoration: InputDecoration(labelText: "Tipo de propiedad"),
+                   keyboardType: TextInputType.text,
+                    style: TextStyle(
+                    color: Colors.blueAccent,
+                    fontFamily: 'OpenSans'),
+                  decoration: InputDecoration(labelText: "Tipo de Propiedad",
+                      hintText: 'Casa, Departamento, Habitación...',
+                      hintStyle: kHintTextStyle,),
                   onSaved: (value) {
                     apellidoPaterno = value;
                   },
                   validator: (value) {
                     if (value.isEmpty) {
-                      return "Casa, Departamento...";
+                      return "Llene este campo";
                     }
                     return null;
                   },
                 ),
                 TextFormField(
-                  decoration:
-                      InputDecoration(labelText: "Capacidad de Personas"),
+                  keyboardType: TextInputType.number,
+                    style: TextStyle(
+                    color: Colors.blueAccent,
+                    fontFamily: 'OpenSans'),
+                  decoration: InputDecoration(labelText: "Capacidad de personas",
+                      hintText: 'Cuantas personas',
+                      hintStyle: kHintTextStyle,),
                   onSaved: (value) {
                     apellidoMaterno = value;
                   },
@@ -71,7 +90,13 @@ class FormularioPerfil extends StatelessWidget {
                   },
                 ),
                 TextFormField(
-                  decoration: InputDecoration(labelText: "N° de habitaciones"),
+                  keyboardType: TextInputType.number,
+                    style: TextStyle(
+                    color: Colors.blueAccent,
+                    fontFamily: 'OpenSans'),
+                  decoration: InputDecoration(labelText: "N° de habitaciones",
+                      hintText: 'Casa, Departamento, Habitación...',
+                      hintStyle: kHintTextStyle,),
                   onSaved: (value) {
                     genero = value;
                   },
@@ -83,7 +108,14 @@ class FormularioPerfil extends StatelessWidget {
                   },
                 ),
                 TextFormField(
-                  decoration: InputDecoration(labelText: "N° de Baños"),
+                  keyboardType: TextInputType.number,
+                    style: TextStyle(
+                      color: Colors.blueAccent,
+                      fontFamily: 'OpenSans'),
+                    decoration: InputDecoration(labelText: "N° de Baños",
+                        hintText: 'Cantidad de baños...',
+                        hintStyle: kHintTextStyle,
+                        ),
                   onSaved: (value) {
                     genero = value;
                   },
@@ -95,7 +127,14 @@ class FormularioPerfil extends StatelessWidget {
                   },
                 ),
                 TextFormField(
-                  decoration: InputDecoration(labelText: "Dirección"),
+                 keyboardType: TextInputType.streetAddress,
+                    style: TextStyle(
+                      color: Colors.blueAccent,
+                      fontFamily: 'OpenSans'),
+                    decoration: InputDecoration(labelText: "Dirección",
+                        hintText: 'Escriba su dirección...',
+                        hintStyle: kHintTextStyle,
+                        ),
                   onSaved: (value) {
                     ocupacion = value;
                   },
@@ -107,7 +146,14 @@ class FormularioPerfil extends StatelessWidget {
                   },
                 ),
                 TextFormField(
-                  decoration: InputDecoration(labelText: "Localidad"),
+                  keyboardType: TextInputType.text,
+                    style: TextStyle(
+                      color: Colors.blueAccent,
+                      fontFamily: 'OpenSans'),
+                    decoration: InputDecoration(labelText: "Ciudad",
+                        hintText: 'Localidad, Ciudad, Estado...',
+                        hintStyle: kHintTextStyle,
+                        ),
                   onSaved: (value) {
                     ocupacion = value;
                   },
@@ -119,7 +165,14 @@ class FormularioPerfil extends StatelessWidget {
                   },
                 ),
                 TextFormField(
-                  decoration: InputDecoration(labelText: "Codigo Postal"),
+                  keyboardType: TextInputType.number,
+                    style: TextStyle(
+                      color: Colors.blueAccent,
+                      fontFamily: 'OpenSans'),
+                    decoration: InputDecoration(labelText: "Codigo Postal",
+                        hintText: 'Codigo Postal...',
+                        hintStyle: kHintTextStyle,
+                        ),
                   onSaved: (value) {
                     ocupacion = value;
                   },
@@ -131,8 +184,15 @@ class FormularioPerfil extends StatelessWidget {
                   },
                 ),
                 TextFormField(
-                  decoration: InputDecoration(
-                      labelText: "Captura imagenes" + '\n' + " del lugar"),
+                  keyboardType: TextInputType.text,
+                    style: TextStyle(
+                      color: Colors.blueAccent,
+                      fontFamily: 'OpenSans'),
+                    decoration: InputDecoration(labelText: "Captura imagenes del lugar",
+                        hintText: 'Imagenes...',
+                        hintStyle: kHintTextStyle,
+                        ),
+                  
                   onSaved: (value) {
                     ocupacion = value;
                   },
@@ -144,7 +204,14 @@ class FormularioPerfil extends StatelessWidget {
                   },
                 ),
                 TextFormField(
-                  decoration: InputDecoration(labelText: "Extras"),
+                 keyboardType: TextInputType.multiline,
+                    style: TextStyle(
+                      color: Colors.blueAccent,
+                      fontFamily: 'OpenSans'),
+                    decoration: InputDecoration(labelText: "Extras",
+                        hintText: 'Describe partes adicionales...',
+                        hintStyle: kHintTextStyle,
+                        ),
                   onSaved: (value) {
                     ocupacion = value;
                   },
@@ -156,8 +223,14 @@ class FormularioPerfil extends StatelessWidget {
                   },
                 ),
                 TextFormField(
-                  decoration:
-                      InputDecoration(labelText: "Localización en GoogleMaps"),
+                  keyboardType: TextInputType.url,
+                    style: TextStyle(
+                      color: Colors.blueAccent,
+                      fontFamily: 'OpenSans'),
+                    decoration: InputDecoration(labelText: "IdGoogleMaps",
+                        hintText: 'Codigo Postal...',
+                        hintStyle: kHintTextStyle,
+                        ),
                   onSaved: (value) {
                     ocupacion = value;
                   },
