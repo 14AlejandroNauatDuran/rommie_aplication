@@ -46,19 +46,20 @@ class FormularioPerfil extends StatelessWidget {
                   },
                 ),
                 TextFormField(
-                  decoration: InputDecoration(labelText: "Apellido Paterno"),
+                  decoration: InputDecoration(labelText: "Tipo de propiedad"),
                   onSaved: (value) {
                     apellidoPaterno = value;
                   },
                   validator: (value) {
                     if (value.isEmpty) {
-                      return "Llene este campo";
+                      return "Casa, Departamento...";
                     }
                     return null;
                   },
                 ),
                 TextFormField(
-                  decoration: InputDecoration(labelText: "Capacidad"),
+                  decoration:
+                      InputDecoration(labelText: "Capacidad de Personas"),
                   onSaved: (value) {
                     apellidoMaterno = value;
                   },
@@ -82,8 +83,7 @@ class FormularioPerfil extends StatelessWidget {
                   },
                 ),
                 TextFormField(
-                  decoration:
-                      InputDecoration(labelText: "Tipo de habitaciones"),
+                  decoration: InputDecoration(labelText: "N° de Baños"),
                   onSaved: (value) {
                     genero = value;
                   },
@@ -119,7 +119,7 @@ class FormularioPerfil extends StatelessWidget {
                   },
                 ),
                 TextFormField(
-                  decoration: InputDecoration(labelText: "C. Postal"),
+                  decoration: InputDecoration(labelText: "Codigo Postal"),
                   onSaved: (value) {
                     ocupacion = value;
                   },
@@ -144,7 +144,7 @@ class FormularioPerfil extends StatelessWidget {
                   },
                 ),
                 TextFormField(
-                  decoration: InputDecoration(labelText: "Tipo de porpiedad"),
+                  decoration: InputDecoration(labelText: "Extras"),
                   onSaved: (value) {
                     ocupacion = value;
                   },
