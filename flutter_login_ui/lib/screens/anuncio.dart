@@ -23,6 +23,7 @@ class FormularioPerfil extends StatelessWidget {
       typePropity,
       numPeople,
       numHabitacion,
+      numBano,
       direccion,
       localidad,
       cp,
@@ -120,6 +121,25 @@ class FormularioPerfil extends StatelessWidget {
                   },
                 ),
                 TextFormField(
+                  keyboardType: TextInputType.number,
+                  style: TextStyle(
+                      color: Colors.blueAccent, fontFamily: 'OpenSans'),
+                  decoration: InputDecoration(
+                    labelText: "N° de Baños",
+                    hintText: 'Cantidad de baños...',
+                    hintStyle: kHintTextStyle,
+                  ),
+                  onSaved: (value) {
+                    numBano = value;
+                  },
+                  validator: (value) {
+                    if (value.isEmpty) {
+                      return "Llene este campo";
+                    }
+                    return null;
+                  },
+                ),
+                TextFormField(
                   keyboardType: TextInputType.streetAddress,
                   style: TextStyle(
                       color: Colors.blueAccent, fontFamily: 'OpenSans'),
@@ -162,7 +182,7 @@ class FormularioPerfil extends StatelessWidget {
                   style: TextStyle(
                       color: Colors.blueAccent, fontFamily: 'OpenSans'),
                   decoration: InputDecoration(
-                    labelText: "Codigo Postal",
+                    labelText: "Código Postal",
                     hintText: 'Codigo Postal...',
                     hintStyle: kHintTextStyle,
                   ),
@@ -181,7 +201,7 @@ class FormularioPerfil extends StatelessWidget {
                   style: TextStyle(
                       color: Colors.blueAccent, fontFamily: 'OpenSans'),
                   decoration: InputDecoration(
-                    labelText: "Captura imagenes del lugar",
+                    labelText: "Captura imágenes del lugar",
                     hintText: 'Imagenes...',
                     hintStyle: kHintTextStyle,
                   ),
