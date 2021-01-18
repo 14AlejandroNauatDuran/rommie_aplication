@@ -19,8 +19,18 @@ class FormularioPerfil extends StatelessWidget {
 
   final GlobalKey formKey =
       GlobalKey<FormState>(); //acceso a un elemento del widge de manera global
-  String namePropity;
-  String apellidoPaterno, apellidoMaterno, genero, ocupacion;
+  String namePropity,
+      typePropity,
+      numPeople,
+      numHabitacion,
+      numBano,
+      direccion,
+      localidad,
+      cp,
+      imagen,
+      extra,
+      googlemaps;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,7 +73,7 @@ class FormularioPerfil extends StatelessWidget {
                     hintStyle: kHintTextStyle,
                   ),
                   onSaved: (value) {
-                    apellidoPaterno = value;
+                    typePropity = value;
                   },
                   validator: (value) {
                     if (value.isEmpty) {
@@ -82,7 +92,7 @@ class FormularioPerfil extends StatelessWidget {
                     hintStyle: kHintTextStyle,
                   ),
                   onSaved: (value) {
-                    apellidoMaterno = value;
+                    numPeople = value;
                   },
                   validator: (value) {
                     if (value.isEmpty) {
@@ -101,7 +111,7 @@ class FormularioPerfil extends StatelessWidget {
                     hintStyle: kHintTextStyle,
                   ),
                   onSaved: (value) {
-                    genero = value;
+                    numHabitacion = value;
                   },
                   validator: (value) {
                     if (value.isEmpty) {
@@ -120,7 +130,7 @@ class FormularioPerfil extends StatelessWidget {
                     hintStyle: kHintTextStyle,
                   ),
                   onSaved: (value) {
-                    genero = value;
+                    numBano = value;
                   },
                   validator: (value) {
                     if (value.isEmpty) {
@@ -139,7 +149,7 @@ class FormularioPerfil extends StatelessWidget {
                     hintStyle: kHintTextStyle,
                   ),
                   onSaved: (value) {
-                    ocupacion = value;
+                    direccion = value;
                   },
                   validator: (value) {
                     if (value.isEmpty) {
@@ -158,7 +168,7 @@ class FormularioPerfil extends StatelessWidget {
                     hintStyle: kHintTextStyle,
                   ),
                   onSaved: (value) {
-                    ocupacion = value;
+                    localidad = value;
                   },
                   validator: (value) {
                     if (value.isEmpty) {
@@ -177,7 +187,7 @@ class FormularioPerfil extends StatelessWidget {
                     hintStyle: kHintTextStyle,
                   ),
                   onSaved: (value) {
-                    ocupacion = value;
+                    cp = value;
                   },
                   validator: (value) {
                     if (value.isEmpty) {
@@ -196,7 +206,7 @@ class FormularioPerfil extends StatelessWidget {
                     hintStyle: kHintTextStyle,
                   ),
                   onSaved: (value) {
-                    ocupacion = value;
+                    imagen = value;
                   },
                   validator: (value) {
                     if (value.isEmpty) {
@@ -215,7 +225,7 @@ class FormularioPerfil extends StatelessWidget {
                     hintStyle: kHintTextStyle,
                   ),
                   onSaved: (value) {
-                    ocupacion = value;
+                    extra = value;
                   },
                   validator: (value) {
                     if (value.isEmpty) {
@@ -234,7 +244,7 @@ class FormularioPerfil extends StatelessWidget {
                     hintStyle: kHintTextStyle,
                   ),
                   onSaved: (value) {
-                    ocupacion = value;
+                    googlemaps = value;
                   },
                   validator: (value) {
                     if (value.isEmpty) {
