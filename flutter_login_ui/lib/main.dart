@@ -4,7 +4,7 @@ import 'package:flutter_login_ui/screens/home.dart';
 import 'package:flutter_login_ui/screens/login_screen.dart';
 import 'package:flutter_login_ui/screens/perfil.dart';
 import 'package:flutter_login_ui/screens/formulario.dart';
-
+import 'package:flutter_login_ui/screens/perguar.dart';
 
 void main() => runApp(MyApp());
 
@@ -18,9 +18,10 @@ class MyApp extends StatelessWidget {
       routes: {
         '/login': (context) => LoginScreen(),
         '/catalogo': (context) => Home(),
-        '/perfil': (context) => Perfil(),
+        Perfil.ROUTE: (_) => Perfil(),
         '/anuncios': (context) => Anuncio(),
         Home.ROUTE: (_) => Home(),
+        Perguar.ROUTE: (_) => Perguar(),
         Formulario.ROUTE: (_) => Formulario()
       },
       initialRoute: '/login',

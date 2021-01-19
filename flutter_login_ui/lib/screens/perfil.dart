@@ -1,110 +1,159 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_login_ui/base/note1.dart';
+import 'package:flutter_login_ui/db/operation1.dart';
 
 class Perfil extends StatelessWidget {
+  static const String ROUTE = "/perfil";
+
+  final _formKey = GlobalKey<FormState>();
+  final nomController = TextEditingController();
+  final apController = TextEditingController();
+  final amController = TextEditingController();
+  final genController = TextEditingController();
+  final ocuController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Perfil_usuario',
-      home: FormularioPerfil(),
-    );
-  }
-}
+    Note1 note = ModalRoute.of(context).settings.arguments;
+    _init(note);
 
-// ignore: must_be_immutable
-class FormularioPerfil extends StatelessWidget {
-  @override
-  FormularioPerfil();
-
-  final GlobalKey formKey =
-      GlobalKey<FormState>(); //acceso a un elemento del widge de manera global
-  String nameValue;
-  String apellidoPaterno, apellidoMaterno, genero, ocupacion;
-  @override
-  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Formulario del perfil"),
+        title: Text("Guardar"),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Form(
-          key: formKey,
-          child: SingleChildScrollView(
-            child: Column(
-              children: <Widget>[
-                Image.asset(
+      body: Container(
+        child: _buildForm(note),
+      ),
+    );
+  }
+
+  _init(Note1 note) {
+    nomController.text = note.nom;
+    apController.text = note.ap;
+    amController.text = note.am;
+    genController.text = note.gen;
+    ocuController.text = note.ocu;
+  }
+
+  Widget _buildForm(Note1 note) {
+    return Container(
+      padding: EdgeInsets.all(15),
+      child: Form(
+        key: _formKey,
+        child: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              Image.asset(
                   "assets/logos/usuario.png",
                   height: 200,
                 ),
-                TextFormField(
-                  decoration: InputDecoration(labelText: "Nombre:"),
-                  onSaved: (value) {
-                    nameValue = value;
-                  },
-                  validator: (value) {
-                    if (value.isEmpty) {
-                      return "Llene este campo";
+              TextFormField(
+                controller: nomController,
+                validator: (value) {
+                  if (value.isEmpty) {
+                    return "Tiene que colocar data";
+                  }
+                  return null;
+                },
+                decoration: InputDecoration(
+                    labelText: "Nombre",
+                    border:
+                        OutlineInputBorder() //borderRadius: BorderRadius.all(Radius.circular(50))
+                    ),
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              TextFormField(
+                controller: apController,
+                validator: (value) {
+                  if (value.isEmpty) {
+                    return "Tiene que colocar data";
+                  }
+                  return null;
+                },
+                decoration: InputDecoration(
+                    labelText: "Apellido Paterno",
+                    border:
+                        OutlineInputBorder() //borderRadius: BorderRadius.all(Radius.circular(50))
+                    ),
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              TextFormField(
+                controller: amController,
+                validator: (value) {
+                  if (value.isEmpty) {
+                    return "Tiene que colocar data";
+                  }
+                  return null;
+                },
+                decoration: InputDecoration(
+                    labelText: "Apellido Materno",
+                    border:
+                        OutlineInputBorder() //borderRadius: BorderRadius.all(Radius.circular(50))
+                    ),
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              TextFormField(
+                controller: genController,
+                validator: (value) {
+                  if (value.isEmpty) {
+                    return "Tiene que colocar data";
+                  }
+                  return null;
+                },
+                decoration: InputDecoration(
+                    labelText: "Genero",
+                    border:
+                        OutlineInputBorder() //borderRadius: BorderRadius.all(Radius.circular(50))
+                    ),
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              TextFormField(
+                controller: ocuController,
+                validator: (value) {
+                  if (value.isEmpty) {
+                    return "Tiene que colocar data";
+                  }
+                  return null;
+                },
+                decoration: InputDecoration(
+                    labelText: "Ocupacion",
+                    border:
+                        OutlineInputBorder() //borderRadius: BorderRadius.all(Radius.circular(50))
+                    ),
+              ),
+              RaisedButton(
+                child: Text("Guardar"),
+                onPressed: () {
+                  if (_formKey.currentState.validate()) {
+                    if (note.id != null) {
+                      // actualizacion
+                      note.nom = nomController.text;
+                      note.ap = apController.text;
+                      note.am = amController.text;
+                      note.gen = genController.text;
+                      note.ocu = ocuController.text;
+                      Operation1.update(note);
+                    } else {
+                      // insercion
+                      Operation1.insert(Note1(
+                          nom: nomController.text,
+                          ap: apController.text,
+                          am: amController.text,
+                          gen: genController.text,
+                          ocu: ocuController.text));
                     }
-                    return null;
-                  },
-                ),
-                TextFormField(
-                  decoration: InputDecoration(labelText: "Apellido Paterno"),
-                  onSaved: (value) {
-                    apellidoPaterno = value;
-                  },
-                  validator: (value) {
-                    if (value.isEmpty) {
-                      return "Llene este campo";
-                    }
-                    return null;
-                  },
-                ),
-                TextFormField(
-                  decoration: InputDecoration(labelText: "Apellido Materno"),
-                  onSaved: (value) {
-                    apellidoMaterno = value;
-                  },
-                  validator: (value) {
-                    if (value.isEmpty) {
-                      return "Llene este campo";
-                    }
-                    return null;
-                  },
-                ),
-                TextFormField(
-                  decoration: InputDecoration(labelText: "Genero"),
-                  onSaved: (value) {
-                    genero = value;
-                  },
-                  validator: (value) {
-                    if (value.isEmpty) {
-                      return "Llene este campo";
-                    }
-                    return null;
-                  },
-                ),
-                TextFormField(
-                  decoration: InputDecoration(labelText: "Ocupacion"),
-                  onSaved: (value) {
-                    ocupacion = value;
-                  },
-                  validator: (value) {
-                    if (value.isEmpty) {
-                      return "Llene este campo";
-                    }
-                    return null;
-                  },
-                ),
-                RaisedButton(
-                  child: Text("Guardar Informacion"),
-                  color: Colors.blueAccent,
-                  onPressed: () {
-                    print("Informacion almacenada correctamente");
-                  },
-                )
-              ],
-            ),
+                  }
+                },
+              )
+            ],
           ),
         ),
       ),

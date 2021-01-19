@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_login_ui/base/note.dart';
 import 'package:flutter_login_ui/db/operation.dart';
 import 'package:flutter_login_ui/screens/formulario.dart';
+import 'package:flutter_login_ui/base/note1.dart';
+import 'package:flutter_login_ui/screens/perguar.dart';
+import 'package:flutter_login_ui/screens/Perfil.dart';
 
 class Home extends StatelessWidget {
   static const String ROUTE = "/home";
@@ -65,19 +68,32 @@ class __MyListState extends State<_MyList> {
                 title: Text('Tu perfil'),
                 leading: Icon(Icons.supervised_user_circle),
                 onTap: () {
-                  Navigator.pushNamed(context, '/perfil');
+                  Navigator.pushNamed(context, Perfil.ROUTE,
+                          arguments: Note1.empty())
+                      .then((value) => setState(() {
+                            _loadData();
+                          }));
                 }),
             ListTile(
-              title: Text('Mis anuncios'),
-              leading: Icon(Icons.speaker_group),
-              onTap: () {
-                Navigator.pushNamed(context, Formulario.ROUTE);
-              },
-            ),
+                title: Text('Mis anuncios'),
+                leading: Icon(Icons.speaker_group),
+                onTap: () {
+                  Navigator.pushNamed(context, Formulario.ROUTE,
+                          arguments: Note1.empty())
+                      .then((value) => setState(() {
+                            _loadData();
+                          }));
+                }),
             ListTile(
-              title: Text('Ayuda'),
+              title: Text('Perfiles Agregados'),
               leading: Icon(Icons.question_answer_outlined),
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamed(context, Perguar.ROUTE,
+                        arguments: Note1.empty())
+                    .then((value) => setState(() {
+                          _loadData();
+                        }));
+              },
             ),
             ListTile(
               title: Text('Cerrar Sesión'),
