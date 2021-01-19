@@ -79,7 +79,7 @@ class __MyListState extends State<_MyList> {
                 leading: Icon(Icons.speaker_group),
                 onTap: () {
                   Navigator.pushNamed(context, Formulario.ROUTE,
-                          arguments: Note1.empty())
+                          arguments: Note.empty())
                       .then((value) => setState(() {
                             _loadData();
                           }));
