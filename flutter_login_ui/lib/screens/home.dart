@@ -5,7 +5,7 @@ import 'package:flutter_login_ui/db/operation.dart';
 import 'package:flutter_login_ui/screens/formulario.dart';
 
 class Home extends StatelessWidget {
-  static const String ROUTE = "/";
+  static const String ROUTE = "/home";
 
   @override
   Widget build(BuildContext context) {
@@ -72,7 +72,8 @@ class __MyListState extends State<_MyList> {
               leading: Icon(Icons.speaker_group),
               onTap: () {
                 Navigator.pushNamed(context, Formulario.ROUTE);
-              },),
+              },
+            ),
             ListTile(
               title: Text('Ayuda'),
               leading: Icon(Icons.question_answer_outlined),

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_login_ui/base/note.dart';
 import 'package:flutter_login_ui/db/operation.dart';
+import 'package:flutter_login_ui/screens/home.dart';
+import 'package:path/path.dart';
 
 class Formulario extends StatelessWidget {
   static const String ROUTE = "/formulario";
@@ -28,7 +30,7 @@ class Formulario extends StatelessWidget {
         title: Text("Guardar"),
       ),
       body: Container(
-        child: _buildForm(note),
+        child: _buildForm(note, context),
       ),
     );
   }
@@ -47,7 +49,7 @@ class Formulario extends StatelessWidget {
     mapsController.text = note.maps;
   }
 
-  Widget _buildForm(Note note) {
+  Widget _buildForm(Note note, BuildContext context) {
     return Container(
       padding: EdgeInsets.all(15),
       child: Form(
@@ -260,6 +262,8 @@ class Formulario extends StatelessWidget {
                       note.maps = mapsController.text;
 
                       Operation.update(note);
+                      Navigator.pop(
+                          context, "Datos Actualizados Correctamente");
                     } else {
                       // insercion
                       Operation.insert(Note(
@@ -274,14 +278,22 @@ class Formulario extends StatelessWidget {
                           imagen: imagenController.text,
                           extras: extrasController.text,
                           maps: mapsController.text));
+                      Navigator.pop(context, "Datos Almacenados Correctamente");
                     }
                   }
-                },
+                  Navigator.pushNamed(context, Home.ROUTE,
+                      arguments: Note.empty());
+                }, //fin onpresed
               )
             ],
           ),
         ),
       ),
     );
+  }
+
+  guardar() {
+    print("Informacion almacenada correctamente");
+    _formKey.currentState.reset();
   }
 }
