@@ -13,6 +13,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+    // Define the default brightness and colors.
+    brightness: Brightness.light,
+    primaryColor: Colors.deepPurple[300],
+    accentColor: Colors.deepPurple[300],
+      ),
       title: 'Roomitum',
       debugShowCheckedModeBanner: false,
       routes: {

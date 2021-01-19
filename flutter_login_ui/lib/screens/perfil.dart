@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_login_ui/base/note1.dart';
 import 'package:flutter_login_ui/db/operation1.dart';
 
+import 'dart:io';
+import 'package:image_picker/image_picker.dart';
+
 class Perfil extends StatelessWidget {
   static const String ROUTE = "/perfil";
 
