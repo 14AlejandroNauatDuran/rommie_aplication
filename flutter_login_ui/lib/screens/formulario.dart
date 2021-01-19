@@ -4,8 +4,7 @@ import 'package:flutter_login_ui/db/operation.dart';
 import 'package:flutter_login_ui/screens/home.dart';
 import 'package:path/path.dart';
 
-import 'dart:io';
-import 'package:image_picker/image_picker.dart';
+
 
 class Formulario extends StatelessWidget {
   static const String ROUTE = "/formulario";
