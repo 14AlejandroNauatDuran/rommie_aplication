@@ -4,6 +4,9 @@ import 'package:flutter_login_ui/db/operation.dart';
 import 'package:flutter_login_ui/screens/home.dart';
 import 'package:path/path.dart';
 
+import 'dart:io';
+import 'package:image_picker/image_picker.dart';
+
 class Formulario extends StatelessWidget {
   static const String ROUTE = "/formulario";
 
@@ -20,6 +23,7 @@ class Formulario extends StatelessWidget {
   final extrasController = TextEditingController();
   final mapsController = TextEditingController();
 
+
   @override
   Widget build(BuildContext context) {
     Note note = ModalRoute.of(context).settings.arguments;
@@ -27,7 +31,7 @@ class Formulario extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Guardar"),
+                title: Text("Guardar"),
       ),
       body: Container(
         child: _buildForm(note, context),
@@ -58,6 +62,7 @@ class Formulario extends StatelessWidget {
           child: Column(
             children: <Widget>[
               TextFormField(
+                keyboardType: TextInputType.name,
                 controller: titleController,
                 validator: (value) {
                   if (value.isEmpty) {
@@ -66,7 +71,7 @@ class Formulario extends StatelessWidget {
                   return null;
                 },
                 decoration: InputDecoration(
-                    labelText: "Título",
+                    labelText: "Título",        
                     border:
                         OutlineInputBorder() //borderRadius: BorderRadius.all(Radius.circular(50))
                     ),
@@ -75,6 +80,7 @@ class Formulario extends StatelessWidget {
                 height: 15,
               ),
               TextFormField(
+                keyboardType: TextInputType.multiline,
                 controller: contentController,
                 maxLines: 8,
                 maxLength: 1000,
@@ -94,6 +100,7 @@ class Formulario extends StatelessWidget {
                 height: 15,
               ),
               TextFormField(
+                keyboardType: TextInputType.text,
                 controller: content1Controller,
                 validator: (value) {
                   if (value.isEmpty) {
@@ -102,7 +109,7 @@ class Formulario extends StatelessWidget {
                   return null;
                 },
                 decoration: InputDecoration(
-                    labelText: "Direccion",
+                    labelText: "Tipo de Propiedad",
                     border:
                         OutlineInputBorder() //borderRadius: BorderRadius.all(Radius.circular(50))
                     ),
@@ -111,6 +118,7 @@ class Formulario extends StatelessWidget {
                 height: 15,
               ),
               TextFormField(
+                keyboardType: TextInputType.number,
                 controller: habiController,
                 validator: (value) {
                   if (value.isEmpty) {
@@ -128,6 +136,7 @@ class Formulario extends StatelessWidget {
                 height: 15,
               ),
               TextFormField(
+                keyboardType: TextInputType.number,
                 controller: banosController,
                 validator: (value) {
                   if (value.isEmpty) {
@@ -145,6 +154,7 @@ class Formulario extends StatelessWidget {
                 height: 15,
               ),
               TextFormField(
+                keyboardType: TextInputType.streetAddress,
                 controller: direcController,
                 validator: (value) {
                   if (value.isEmpty) {
@@ -162,6 +172,7 @@ class Formulario extends StatelessWidget {
                 height: 15,
               ),
               TextFormField(
+                keyboardType: TextInputType.text,
                 controller: ciudadController,
                 validator: (value) {
                   if (value.isEmpty) {
@@ -179,6 +190,7 @@ class Formulario extends StatelessWidget {
                 height: 15,
               ),
               TextFormField(
+                keyboardType: TextInputType.number,
                 controller: postalController,
                 validator: (value) {
                   if (value.isEmpty) {
@@ -213,6 +225,7 @@ class Formulario extends StatelessWidget {
                 height: 15,
               ),
               TextFormField(
+                keyboardType: TextInputType.multiline,
                 controller: extrasController,
                 validator: (value) {
                   if (value.isEmpty) {
@@ -230,6 +243,7 @@ class Formulario extends StatelessWidget {
                 height: 15,
               ),
               TextFormField(
+                keyboardType: TextInputType.url,
                 controller: mapsController,
                 validator: (value) {
                   if (value.isEmpty) {

@@ -48,6 +48,7 @@ class Perfil extends StatelessWidget {
                   height: 200,
                 ),
               TextFormField(
+                keyboardType: TextInputType.name,
                 controller: nomController,
                 validator: (value) {
                   if (value.isEmpty) {
@@ -65,6 +66,7 @@ class Perfil extends StatelessWidget {
                 height: 15,
               ),
               TextFormField(
+                keyboardType: TextInputType.name,
                 controller: apController,
                 validator: (value) {
                   if (value.isEmpty) {
@@ -82,6 +84,7 @@ class Perfil extends StatelessWidget {
                 height: 15,
               ),
               TextFormField(
+                keyboardType: TextInputType.name,
                 controller: amController,
                 validator: (value) {
                   if (value.isEmpty) {
@@ -99,6 +102,7 @@ class Perfil extends StatelessWidget {
                 height: 15,
               ),
               TextFormField(
+                keyboardType: TextInputType.text,
                 controller: genController,
                 validator: (value) {
                   if (value.isEmpty) {
@@ -116,6 +120,7 @@ class Perfil extends StatelessWidget {
                 height: 15,
               ),
               TextFormField(
+                keyboardType: TextInputType.text,
                 controller: ocuController,
                 validator: (value) {
                   if (value.isEmpty) {
