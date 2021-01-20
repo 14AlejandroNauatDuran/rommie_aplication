@@ -4,8 +4,10 @@ import 'package:flutter_login_ui/base/note.dart';
 import 'package:flutter_login_ui/db/operation.dart';
 import 'package:flutter_login_ui/screens/formulario.dart';
 import 'package:flutter_login_ui/base/note1.dart';
-import 'package:flutter_login_ui/screens/perguar.dart';
+//import 'package:flutter_login_ui/screens/perguar.dart';
 import 'package:flutter_login_ui/screens/Perfil.dart';
+
+import 'anuncio.dart';
 
 class Home extends StatelessWidget {
   static const String ROUTE = "/home";
@@ -34,16 +36,6 @@ class __MyListState extends State<_MyList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.add),
-          onPressed: () {
-            Navigator.pushNamed(context, Formulario.ROUTE,
-                    arguments: Note.empty())
-                .then((value) => setState(() {
-                      _loadData();
-                    }));
-          },
-        ),
         appBar: AppBar(
           title: Text("ANUNCIOS"),
         ),
@@ -85,10 +77,10 @@ class __MyListState extends State<_MyList> {
                           }));
                 }),
             ListTile(
-              title: Text('Perfiles Agregados'),
+              title: Text('Agregar Habitacion'),
               leading: Icon(Icons.question_answer_outlined),
               onTap: () {
-                Navigator.pushNamed(context, Perguar.ROUTE,
+                Navigator.pushNamed(context, Anuncio.ROUTE,
                         arguments: Note1.empty())
                     .then((value) => setState(() {
                           _loadData();
@@ -115,33 +107,11 @@ class __MyListState extends State<_MyList> {
   }
 
   _createItem(int i) {
-    return Dismissible(
+    return ListTile(
       key: Key(i.toString()),
-      direction: DismissDirection.startToEnd,
-      background: Container(
-        color: Colors.red,
-        padding: EdgeInsets.only(left: 5),
-        child: Align(
-          alignment: Alignment.centerLeft,
-          child: Icon(Icons.delete, color: Colors.white),
-        ),
-      ),
-      onDismissed: (direction) {
-        print(direction);
-        Operation.delete(notes[i]);
-      },
-      child: ListTile(
-        title: Text(notes[i].title),
-        trailing: MaterialButton(
-            onPressed: () {
-              Navigator.pushNamed(context, Formulario.ROUTE,
-                      arguments: notes[i])
-                  .then((value) => setState(() {
-                        _loadData();
-                      }));
-            },
-            child: Icon(Icons.edit)),
-      ),
+      //direction: DismissDirection.startToEnd,
+
+      title: Text(notes[i].title),
     );
   }
 }

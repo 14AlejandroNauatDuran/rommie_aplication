@@ -2,38 +2,56 @@ import 'package:flutter/material.dart';
 import 'package:flutter_login_ui/base/note.dart';
 import 'package:flutter_login_ui/db/operation.dart';
 import 'package:flutter_login_ui/screens/home.dart';
-import 'package:path/path.dart';
+//import 'package:path/path.dart';
 
 
 
-class Formulario extends StatelessWidget {
+class Formulario extends StatefulWidget {
   static const String ROUTE = "/formulario";
 
-  final _formKey = GlobalKey<FormState>();
-  final titleController = TextEditingController();
-  final contentController = TextEditingController();
-  final content1Controller = TextEditingController();
-  final habiController = TextEditingController();
-  final banosController = TextEditingController();
-  final direcController = TextEditingController();
-  final ciudadController = TextEditingController();
-  final postalController = TextEditingController();
-  final imagenController = TextEditingController();
-  final extrasController = TextEditingController();
-  final mapsController = TextEditingController();
+  @override
+  _FormularioState createState() => _FormularioState();
+}
 
+class _FormularioState extends State<Formulario> {
+  final _formKey = GlobalKey<FormState>();
+
+  final titleController = TextEditingController();
+
+  final contentController = TextEditingController();
+
+  final content1Controller = TextEditingController();
+
+  final habiController = TextEditingController();
+
+  final banosController = TextEditingController();
+
+  final direcController = TextEditingController();
+
+  final ciudadController = TextEditingController();
+
+  final postalController = TextEditingController();
+
+  final imagenController = TextEditingController();
+
+  final extrasController = TextEditingController();
+
+  final mapsController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     Note note = ModalRoute.of(context).settings.arguments;
     _init(note);
 
-    return Scaffold(
+    return WillPopScope(
+      onWillPop: _onWillPopScope,
+      child: Scaffold(
       appBar: AppBar(
                 title: Text("Guardar"),
       ),
       body: Container(
         child: _buildForm(note, context),
+      ),
       ),
     );
   }
@@ -308,5 +326,20 @@ class Formulario extends StatelessWidget {
   guardar() {
     print("Informacion almacenada correctamente");
     _formKey.currentState.reset();
+  }
+
+  Future<bool> _onWillPopScope() {
+    return showDialog(
+      context: context, 
+      child: AlertDialog(
+      title: Text("¿seguro que quieres regresar ala pagina anterior?"),
+      content: Text('Tiene datos sin guardar'),
+      actions: [
+        new FlatButton
+        (onPressed: () =>Navigator.of(context).pop(false), child: Text("No"),),
+        new FlatButton
+        (onPressed: () =>Navigator.of(context).pop(true), child: Text("Si"),),
+      ],
+    ));
   }
 }

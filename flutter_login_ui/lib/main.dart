@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         '/login': (context) => LoginScreen(),
         '/catalogo': (context) => Home(),
         Perfil.ROUTE: (_) => Perfil(),
-        '/anuncios': (context) => Anuncio(),
+        Anuncio.ROUTE: (_) => Anuncio(),
         Home.ROUTE: (_) => Home(),
         Perguar.ROUTE: (_) => Perguar(),
         Formulario.ROUTE: (_) => Formulario()
