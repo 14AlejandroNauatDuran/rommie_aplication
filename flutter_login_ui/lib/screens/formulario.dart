@@ -4,8 +4,6 @@ import 'package:flutter_login_ui/db/operation.dart';
 import 'package:flutter_login_ui/screens/home.dart';
 //import 'package:path/path.dart';
 
-
-
 class Formulario extends StatefulWidget {
   static const String ROUTE = "/formulario";
 
@@ -37,6 +35,7 @@ class _FormularioState extends State<Formulario> {
   final extrasController = TextEditingController();
 
   final mapsController = TextEditingController();
+  int i = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -46,12 +45,12 @@ class _FormularioState extends State<Formulario> {
     return WillPopScope(
       onWillPop: _onWillPopScope,
       child: Scaffold(
-      appBar: AppBar(
-                title: Text("Guardar"),
-      ),
-      body: Container(
-        child: _buildForm(note, context),
-      ),
+        appBar: AppBar(
+          title: Text("Guardar"),
+        ),
+        body: Container(
+          child: _buildForm(note, context),
+        ),
       ),
     );
   }
@@ -83,12 +82,13 @@ class _FormularioState extends State<Formulario> {
                 controller: titleController,
                 validator: (value) {
                   if (value.isEmpty) {
+                    i++;
                     return "Tiene que colocar data";
                   }
                   return null;
                 },
                 decoration: InputDecoration(
-                    labelText: "Título",        
+                    labelText: "Título",
                     border:
                         OutlineInputBorder() //borderRadius: BorderRadius.all(Radius.circular(50))
                     ),
@@ -103,6 +103,7 @@ class _FormularioState extends State<Formulario> {
                 maxLength: 1000,
                 validator: (value) {
                   if (value.isEmpty) {
+                    i++;
                     return "Tiene que colocar data";
                   }
                   return null;
@@ -121,6 +122,7 @@ class _FormularioState extends State<Formulario> {
                 controller: content1Controller,
                 validator: (value) {
                   if (value.isEmpty) {
+                    i++;
                     return "Tiene que colocar data";
                   }
                   return null;
@@ -139,6 +141,7 @@ class _FormularioState extends State<Formulario> {
                 controller: habiController,
                 validator: (value) {
                   if (value.isEmpty) {
+                    i++;
                     return "Tiene que colocar data";
                   }
                   return null;
@@ -157,6 +160,7 @@ class _FormularioState extends State<Formulario> {
                 controller: banosController,
                 validator: (value) {
                   if (value.isEmpty) {
+                    i++;
                     return "Tiene que colocar data";
                   }
                   return null;
@@ -175,6 +179,7 @@ class _FormularioState extends State<Formulario> {
                 controller: direcController,
                 validator: (value) {
                   if (value.isEmpty) {
+                    i++;
                     return "Tiene que colocar data";
                   }
                   return null;
@@ -193,6 +198,7 @@ class _FormularioState extends State<Formulario> {
                 controller: ciudadController,
                 validator: (value) {
                   if (value.isEmpty) {
+                    i++;
                     return "Tiene que colocar data";
                   }
                   return null;
@@ -211,6 +217,7 @@ class _FormularioState extends State<Formulario> {
                 controller: postalController,
                 validator: (value) {
                   if (value.isEmpty) {
+                    i++;
                     return "Tiene que colocar data";
                   }
                   return null;
@@ -228,6 +235,7 @@ class _FormularioState extends State<Formulario> {
                 controller: imagenController,
                 validator: (value) {
                   if (value.isEmpty) {
+                    i++;
                     return "Tiene que colocar data";
                   }
                   return null;
@@ -246,6 +254,7 @@ class _FormularioState extends State<Formulario> {
                 controller: extrasController,
                 validator: (value) {
                   if (value.isEmpty) {
+                    i++;
                     return "Tiene que colocar data";
                   }
                   return null;
@@ -264,6 +273,7 @@ class _FormularioState extends State<Formulario> {
                 controller: mapsController,
                 validator: (value) {
                   if (value.isEmpty) {
+                    i++;
                     return "Tiene que colocar data";
                   }
                   return null;
@@ -312,8 +322,10 @@ class _FormularioState extends State<Formulario> {
                       Navigator.pop(context, "Datos Almacenados Correctamente");
                     }
                   }
-                  Navigator.pushNamed(context, Home.ROUTE,
-                      arguments: Note.empty());
+                  if (i == 0) {
+                    Navigator.pushNamed(context, Home.ROUTE,
+                        arguments: Note.empty());
+                  }
                 }, //fin onpresed
               )
             ],
@@ -330,16 +342,20 @@ class _FormularioState extends State<Formulario> {
 
   Future<bool> _onWillPopScope() {
     return showDialog(
-      context: context, 
-      child: AlertDialog(
-      title: Text("¿seguro que quieres regresar ala pagina anterior?"),
-      content: Text('Tiene datos sin guardar'),
-      actions: [
-        new FlatButton
-        (onPressed: () =>Navigator.of(context).pop(false), child: Text("No"),),
-        new FlatButton
-        (onPressed: () =>Navigator.of(context).pop(true), child: Text("Si"),),
-      ],
-    ));
+        context: context,
+        child: AlertDialog(
+          title: Text("¿seguro que quieres regresar ala pagina anterior?"),
+          content: Text('Tiene datos sin guardar'),
+          actions: [
+            new FlatButton(
+              onPressed: () => Navigator.of(context).pop(false),
+              child: Text("No"),
+            ),
+            new FlatButton(
+              onPressed: () => Navigator.of(context).pop(true),
+              child: Text("Si"),
+            ),
+          ],
+        ));
   }
 }
